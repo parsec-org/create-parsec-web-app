@@ -27,8 +27,7 @@ const SellOnPietraDialog = ({
     },
     {
       title: 'Start selling on Pietra Creator Marketplace.',
-      description:
-        "You can manage your listings, pricing, and you'll be paid out for sales weekly.",
+      description: "You can manage your listings, pricing, and you'll be paid out for sales weekly.",
     },
   ];
 
@@ -56,8 +55,8 @@ const SellOnPietraDialog = ({
       footer={null}
     >
       <p className={styles.text}>
-        We help Creators of all sizes sell more products. Every Creator owns their customer data
-        from each sale and takes home more money per sale than almost any other marketplace.
+        We help Creators of all sizes sell more products. Every Creator owns their customer data from each sale and
+        takes home more money per sale than almost any other marketplace.
       </p>
       <div className={styles.roundedBorder}>Here&apos;s what you do to get selling quickly</div>
       <div className={styles.signupStepsWarp}>
@@ -66,11 +65,7 @@ const SellOnPietraDialog = ({
           dataSource={stepData}
           renderItem={(item) => (
             <List.Item>
-              <List.Item.Meta
-                avatar={<CheckCircleOutlined />}
-                title={item.title}
-                description={item.description}
-              />
+              <List.Item.Meta avatar={<CheckCircleOutlined />} title={item.title} description={item.description} />
             </List.Item>
           )}
         />
@@ -120,11 +115,7 @@ const SellOnPietraDialog = ({
             </Form.Item>
           </Col>
           <Col md={12} sm={24} xs={24}>
-            <Form.Item
-              label="Contact Phone (Optional)"
-              name="contactPhone"
-              rules={[{ required: false }]}
-            >
+            <Form.Item label="Contact Phone (Optional)" name="contactPhone" rules={[{ required: false }]}>
               <Input />
             </Form.Item>
           </Col>

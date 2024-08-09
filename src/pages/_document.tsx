@@ -10,7 +10,7 @@ const AppDocument = (props: any) => {
         {/*<style>============== antd style start ===============</style>*/}
         <style
           type="text/css"
-          data-style-name="ui-style"
+          data-style-name="parsec-ui-style"
           dangerouslySetInnerHTML={{ __html: props?.props?.style }}
         />
         {/*<style>============== antd style end ===============</style>*/}

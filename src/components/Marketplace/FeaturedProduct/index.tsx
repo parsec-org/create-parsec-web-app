@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  FeaturedCreatorProductType,
-  NewestFeaturedProductType,
-} from '@/types/marketplace.interface';
+import { FeaturedCreatorProductType, NewestFeaturedProductType } from '@/types/marketplace.interface';
 import { EventSource } from '@/shared/event-types';
 import Link from 'next/link';
 import styles from './index.module.less';
@@ -50,20 +47,10 @@ const FeaturedProduct = ({ item, showInfo, showAvatar, originEventName, customSt
       )}
       <div className={styles.imageContainer}>
         {image1 && (
-          <img
-            src={imageTransform(image1, 'large')}
-            className={styles.image1}
-            alt={item.name}
-            title={item.name}
-          />
+          <img src={imageTransform(image1, 'large')} className={styles.image1} alt={item.name} title={item.name} />
         )}
         {image2 && !isMobile && (
-          <img
-            src={imageTransform(image2, 'grande')}
-            className={styles.image2}
-            alt={item.name}
-            title={item.name}
-          />
+          <img src={imageTransform(image2, 'grande')} className={styles.image2} alt={item.name} title={item.name} />
         )}
       </div>
       {showInfo && (

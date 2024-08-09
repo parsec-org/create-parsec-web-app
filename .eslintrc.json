@@ -4,6 +4,7 @@
     "plugin:prettier/recommended",
     "prettier"
   ],
+  "root": true,
   "rules": {
   }
 }

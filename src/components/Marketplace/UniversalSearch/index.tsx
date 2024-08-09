@@ -108,9 +108,7 @@ const UniversalSearch = () => {
               {searchSuggestions.stores.map((store, index) => (
                 <div className={styles.suggestion} key={`store-${index}`}>
                   <Link className={styles.store} href={'/designers/' + store.handle}>
-                    {store.avatarUrl && (
-                      <img src={imageTransform(store.avatarUrl, 'compact')} alt="avatar" />
-                    )}
+                    {store.avatarUrl && <img src={imageTransform(store.avatarUrl, 'compact')} alt="avatar" />}
                     <span className="utility-small">{store.title}</span>
                   </Link>
                 </div>
@@ -122,10 +120,7 @@ const UniversalSearch = () => {
               <span className={classNames('utility-big', styles.header)}>Items</span>
               {searchSuggestions.items.map((item, index) => (
                 <div className={styles.suggestion} key={`item-${index}`}>
-                  <span
-                    className="utility-small"
-                    onClick={() => handleSuggestionClick(true, item.text)}
-                  >
+                  <span className="utility-small" onClick={() => handleSuggestionClick(true, item.text)}>
                     {item.text}
                   </span>
                 </div>

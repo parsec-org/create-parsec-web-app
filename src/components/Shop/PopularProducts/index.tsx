@@ -30,9 +30,7 @@ const PopularProducts = ({
             <>
               {products.map((product, i) => (
                 <div className={styles.productItem} key={`product-${i}`}>
-                  {numbered && (
-                    <span className={styles.productNumber}>{zeroPaddedNumber(i + 1)}</span>
-                  )}
+                  {numbered && <span className={styles.productNumber}>{zeroPaddedNumber(i + 1)}</span>}
                   <PopularProduct product={product} />
                 </div>
               ))}

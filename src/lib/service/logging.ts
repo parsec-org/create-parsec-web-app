@@ -2,11 +2,7 @@ import axios from '@/shared/axios';
 import { FB_ADVERTISER_ID } from '@/shared/app-constants';
 import { EventName, EventSource } from '@/shared/event-types';
 
-async function commonLog(params: {
-  eventName: string;
-  commonType: EventSource;
-  commonContent: any;
-}) {
+async function commonLog(params: { eventName: string; commonType: EventSource; commonContent: any }) {
   try {
     // TODO
     const commonParams = {

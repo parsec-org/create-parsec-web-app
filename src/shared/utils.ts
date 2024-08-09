@@ -1,9 +1,5 @@
 import { IxParams } from '@/shared/typings';
-import {
-  SearchSuggestions,
-  SuggestionsCategories,
-  SuggestionsData,
-} from '@/types/marketplace.interface';
+import { SearchSuggestions, SuggestionsCategories, SuggestionsData } from '@/types/marketplace.interface';
 
 export const isS3Image = (url: string) => {
   return url?.includes('static.pietrastudio.com') ?? false;
@@ -24,9 +20,7 @@ export function imgix(v: string, params?: IxParams) {
 }
 
 export const isMobileByUserAgent = (userAgent: string) => {
-  return Boolean(
-    userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i),
-  );
+  return Boolean(userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i));
 };
 export const capitalizeString = (text: string) => {
   return (text || '')
@@ -36,17 +30,7 @@ export const capitalizeString = (text: string) => {
     .join(' ');
 };
 
-type transformType =
-  | 'pico'
-  | 'icon'
-  | 'thumb'
-  | 'small'
-  | 'compact'
-  | 'medium'
-  | 'large'
-  | 'grande'
-  | '1024'
-  | '2048';
+type transformType = 'pico' | 'icon' | 'thumb' | 'small' | 'compact' | 'medium' | 'large' | 'grande' | '1024' | '2048';
 
 /**
  * @link https://www.evernote.com/l/AT59JlZLi4xFW72l5E6dvv2Jtt8eHEOPbrY
@@ -57,18 +41,7 @@ export function imageTransform(url: string, size: transformType | string) {
   if (typeof url !== 'string') return url;
 
   const pietraS3SizeKeys = ['compact', 'large', 'grande', '1024'];
-  const shopifySizeKeys = [
-    'pico',
-    'icon',
-    'thumb',
-    'small',
-    'compact',
-    'medium',
-    'large',
-    'grande',
-    '1024',
-    '2048',
-  ];
+  const shopifySizeKeys = ['pico', 'icon', 'thumb', 'small', 'compact', 'medium', 'large', 'grande', '1024', '2048'];
   if (isS3Image(url)) {
     if (!pietraS3SizeKeys.includes(size)) return url;
     const regex = /(\/public.*?\/)/;
@@ -93,19 +66,13 @@ export function imageTransform(url: string, size: transformType | string) {
 
   if (!/^(jpg|png|jpeg|webp)/i.test(tmpArray[1])) return url;
 
-  const basename = tmpArray[0].replace(
-    RegExp(`_(${shopifySizeKeys.join('|')}|\\d+x\\d+)$`, 'ig'),
-    '',
-  );
+  const basename = tmpArray[0].replace(RegExp(`_(${shopifySizeKeys.join('|')}|\\d+x\\d+)$`, 'ig'), '');
   tmpArray[0] = basename + `_${size}`;
   pathArray[lastIndex] = tmpArray.join('.');
   return pathArray.join('/');
 }
 
-export const convertSuggestions = (
-  data: SuggestionsData,
-  subcategoryValueMap: any,
-): SearchSuggestions => {
+export const convertSuggestions = (data: SuggestionsData, subcategoryValueMap: any): SearchSuggestions => {
   const arr: SearchSuggestions = {
     stores: [],
     items: [],
@@ -166,7 +133,5 @@ export const zeroPaddedNumber = (num: number): string => {
 export const formatPrice = (price: string): string => {
   if (!price) return '';
 
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(
-    parseFloat(price),
-  );
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(parseFloat(price));
 };

@@ -9,23 +9,25 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 const withLess = require('next-with-less');
-const dayjs = require('dayjs');
+const { version } = require('./package.json');
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = (phase) => {
   const env = {
-    NEXT_APP_ENV: process.env.NEXT_APP_ENV,
-    NEXT_APP_API_HOST: process.env.NEXT_APP_API_HOST,
+    NEXT_PUBLIC_ENV: process.env.NEXT_PUBLIC_ENV,
+    NEXT_PUBLIC_STORAGE_PREFIX: process.env.NEXT_PUBLIC_STORAGE_PREFIX,
+    NEXT_PUBLIC_API_HOST: process.env.NEXT_PUBLIC_API_HOST,
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
   };
   /** @type {import('next').NextConfig} */
   const config = {
     output: 'standalone',
     reactStrictMode: true,
-    transpilePackages: ['antd'],
     poweredByHeader: false,
     productionBrowserSourceMaps: true,
     env,
+    compress: isProd,
+    transpilePackages: ['antd', '@ant-design', 'rc-util', 'rc-pagination', 'rc-picker'],
     publicRuntimeConfig: env,
     compiler: {
       // Remove `console.*` output except `console.error`
@@ -58,21 +60,17 @@ const nextConfig = (phase) => {
       });
       return config;
     },
-    sentry: {
-      // Use `hidden-source-map` rather than `source-map` as the Webpack `devtool`
-      // for client-side builds. (This will be the default starting in
-      // `@sentry/nextjs` version 8.0.0.) See
-      // https://webpack.js.org/configuration/devtool/ and
-      // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#use-hidden-source-map
-      // for more information.
-      hideSourceMaps: true,
+    experimental: {
+      webpackBuildWorker: true,
+      instrumentationHook: true,
     },
   };
   return withBundleAnalyzer(
     withSentryConfig(withLess(config), {
       debug: !isProd,
+      hideSourceMaps: true,
       environment: process.env.NODE_ENV,
-      release: `${process.env.NODE_ENV}@${dayjs().format('YYYY-MM-DD HH:mm')}`,
+      release: `parsec-next-app-${process.env.NODE_ENV}@${version}`,
     }),
   );
 };

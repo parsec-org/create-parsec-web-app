@@ -50,9 +50,7 @@ const Hero = () => {
 
   const logItemClick = (keys: string) => {
     logCommonView(
-      keys
-        ? EventSource.MARKETPLACE_HOMEPAGE_SEARCH_TERM
-        : EventSource.MARKETPLACE_HOMEPAGE_FEATURED_IMAGES,
+      keys ? EventSource.MARKETPLACE_HOMEPAGE_SEARCH_TERM : EventSource.MARKETPLACE_HOMEPAGE_FEATURED_IMAGES,
       keys,
     );
   };
@@ -60,11 +58,7 @@ const Hero = () => {
   const mobileSection = heroData ? (
     <div className={classNames(styles.heroSection, styles.mobile)}>
       <CatchPhrase fontSize={retroFontSize()} />
-      <Link
-        href={heroData.imageLinkPath}
-        className={styles.heroImageLink}
-        onClick={() => logItemClick('')}
-      >
+      <Link href={heroData.imageLinkPath} className={styles.heroImageLink} onClick={() => logItemClick('')}>
         <img
           src={imageTransform(heroData.image, 'large')}
           className={styles.heroImage}
@@ -106,11 +100,7 @@ const Hero = () => {
 
   const heroImageSection = heroData ? (
     <div className={classNames(styles.heroSection, styles.heroImageSection)}>
-      <Link
-        href={heroData.imageLinkPath ?? ''}
-        className={styles.heroImageLink}
-        onClick={() => logItemClick('')}
-      >
+      <Link href={heroData.imageLinkPath ?? ''} className={styles.heroImageLink} onClick={() => logItemClick('')}>
         <img
           className={styles.heroImage}
           src={imageTransform(heroData.image, 'large')}

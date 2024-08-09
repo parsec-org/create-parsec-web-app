@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_APP_API_HOST,
+  baseURL: process.env.NEXT_PUBLIC_API_HOST,
   timeout: 10000,
 });
 

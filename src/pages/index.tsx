@@ -21,10 +21,7 @@ Home.getLayout = function getLayout(page: React.ReactElement) {
       head={
         <Head>
           <title>The Largest Creator-First Marketplace | Pietra</title>
-          <meta
-            name="description"
-            content="Shop the largest marketplace in the world for creator-branded goods."
-          />
+          <meta name="description" content="Shop the largest marketplace in the world for creator-branded goods." />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="title" content="The Largest Creator-First Marketplace | Pietra" />
           <link rel="icon" href="/favicon.ico" />

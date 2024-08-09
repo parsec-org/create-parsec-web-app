@@ -39,11 +39,7 @@ const FeaturedCreator = ({
   return (
     <div className={styles.featuredCreator}>
       <div className={styles.imageContainer}>
-        <Link
-          className={styles.imageLink}
-          href={`/designers/${creator.storeHandle}`}
-          onClick={logClick}
-        >
+        <Link className={styles.imageLink} href={`/designers/${creator.storeHandle}`} onClick={logClick}>
           <img
             src={imgix(creator.imageUrl, { h: isMobile ? 250 : 400, dpr: 2, q: 75 })}
             alt={`View products by ${creator.title}`}
@@ -52,30 +48,18 @@ const FeaturedCreator = ({
         </Link>
       </div>
       <div className={styles.contentContainer}>
-        <Link
-          href={`/designers/${creator.storeHandle}`}
-          className={styles.title}
-          onClick={logClick}
-        >
+        <Link href={`/designers/${creator.storeHandle}`} className={styles.title} onClick={logClick}>
           {creator.title}
         </Link>
         <span className={styles.description}>{creator.description}</span>
         <div className={styles.tags}>
           {creator.tags.map((tag, i) => (
-            <span
-              className={styles.tag}
-              key={`tag-${i}`}
-              style={{ backgroundColor: getTagColor(tag) }}
-            >
+            <span className={styles.tag} key={`tag-${i}`} style={{ backgroundColor: getTagColor(tag) }}>
               {tag}
             </span>
           ))}
         </div>
-        <Link
-          href={`/designers/${creator.storeHandle}`}
-          className={styles.goToShop}
-          onClick={logClick}
-        >
+        <Link href={`/designers/${creator.storeHandle}`} className={styles.goToShop} onClick={logClick}>
           <span>View Creator Page</span>
         </Link>
       </div>

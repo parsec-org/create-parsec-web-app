@@ -11,9 +11,7 @@ import { getAllJewelry } from '@/lib/service';
 import { formatProducts, groupById } from '@/shared/marketplace';
 
 const Home = () => {
-  const [featuredCreatorProducts, setFeaturedCreatorProducts] = useState<
-    FeaturedCreatorProductType[]
-  >([]);
+  const [featuredCreatorProducts, setFeaturedCreatorProducts] = useState<FeaturedCreatorProductType[]>([]);
 
   const { value: creators } = useBusinessSettingsDisplay('FEATURED_CREATORS');
   const { value: products } = useBusinessSettingsDisplay('FEATURED_PRODUCTS');

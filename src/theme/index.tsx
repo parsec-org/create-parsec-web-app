@@ -3,14 +3,13 @@ import { ConfigProvider } from 'antd';
 
 const withTheme = (node: JSX.Element) => (
   <ConfigProvider
-    prefixCls="next-antd"
-    iconPrefixCls="next-antd-icon"
+    prefixCls="parsec"
+    iconPrefixCls="parsec-icon"
     theme={{
       token: {
-        colorPrimary: '#D2906A',
-        borderRadius: 0,
+        colorPrimary: '#348ec5',
         fontFamily: 'Labil-Regular',
-        fontSize: 13,
+        fontSize: 14,
         colorLink: '#141414',
       },
       components: {},

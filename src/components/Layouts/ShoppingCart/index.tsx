@@ -6,19 +6,11 @@ import classNames from 'classnames';
 import styles from './index.module.less';
 import { useConfigProvider } from '@/context/ConfigProvider';
 
-const ChoppingCart = ({
-  size = 'small',
-  className,
-}: {
-  size?: 'large' | 'small';
-  className?: string;
-}) => {
+const ChoppingCart = ({ size = 'small', className }: { size?: 'large' | 'small'; className?: string }) => {
   const { open, total, onOpenDrawer } = useShoppingCartProvider();
   const { isMobile } = useConfigProvider();
   const iconSrc = useMemo(() => {
-    return size === 'large'
-      ? '/images/layouts/cart-icon-120.png'
-      : '/images/layouts/cart-icon-50.png';
+    return size === 'large' ? '/images/layouts/cart-icon-120.png' : '/images/layouts/cart-icon-50.png';
   }, [size]);
   return (
     <div className={classNames(styles.shoppingCartWarp, className)}>
@@ -29,14 +21,7 @@ const ChoppingCart = ({
         onClick={() => onOpenDrawer(true)}
       >
         <Badge count={total}>
-          <Image
-            className="pietra"
-            src={iconSrc}
-            alt="Pietra"
-            title="Pietra"
-            width={40}
-            height={11}
-          />
+          <Image className="pietra" src={iconSrc} alt="Pietra" title="Pietra" width={40} height={11} />
         </Badge>
       </div>
       <Drawer

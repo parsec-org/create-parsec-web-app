@@ -21,18 +21,12 @@ const NavItem = ({ item, className }: { item: MarketplaceNavItem; className?: st
   };
   const renderItem = (item: MarketplaceNavItem, index?: string | number) => {
     return (
-      <div
-        className={classNames(styles.navItemWarp, className)}
-        key={index}
-        onClick={() => handleItemClick(item)}
-      >
+      <div className={classNames(styles.navItemWarp, className)} key={index} onClick={() => handleItemClick(item)}>
         <span className={styles.navItemText}>{item.text}</span>
         {item.dropdownItems && <CaretDownOutlined />}
         {item.dropdownItems && (
           <div className={styles.navDropdown}>
-            {item.dropdownItems.map((childItem, cIndex) =>
-              renderItem(childItem, `nav-dropdown-item-${cIndex}`),
-            )}
+            {item.dropdownItems.map((childItem, cIndex) => renderItem(childItem, `nav-dropdown-item-${cIndex}`))}
           </div>
         )}
       </div>

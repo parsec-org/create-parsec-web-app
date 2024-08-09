@@ -24,13 +24,7 @@ const TooltipAvatar = ({ avatarUrl, goToUrl, storeId, direction, text }: Props) 
   return (
     <div className={styles.tooltipAvatar}>
       <Link href={goToUrl} className={styles.avatar} onClick={logClick}>
-        {avatarUrl && (
-          <img
-            src={imageTransform(avatarUrl, 'compact')}
-            alt="Creator avatar"
-            title="Creator avatar"
-          />
-        )}
+        {avatarUrl && <img src={imageTransform(avatarUrl, 'compact')} alt="Creator avatar" title="Creator avatar" />}
       </Link>
       {!isMobile && (
         <div className={styles.tooltipElement}>

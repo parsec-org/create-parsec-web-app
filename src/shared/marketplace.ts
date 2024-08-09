@@ -22,9 +22,7 @@ export const joinProductData = (
     storeTitle: productData2?.store?.title,
     name: productData2.name,
     price: productData2.syncData?.priceRange?.maxVariantPrice?.amount,
-    images: (productData2.syncData?.images?.edges ?? []).map((edge) =>
-      _get(edge, 'node.originalSrc', ''),
-    ),
+    images: (productData2.syncData?.images?.edges ?? []).map((edge) => _get(edge, 'node.originalSrc', '')),
     availableForSale: productData2.syncData?.availableForSale,
   };
 };
@@ -65,12 +63,9 @@ export const formatProducts = (
   products: FeaturedCreatorProductType[],
   productMap: any,
 ): FeaturedCreatorProductType[] => {
-  return products.reduce(
-    (acc: FeaturedCreatorProductType[], product: FeaturedCreatorProductType) => {
-      return Object.prototype.hasOwnProperty.call(productMap, product.productId)
-        ? [...acc, joinProductData(product, productMap[product.productId])]
-        : acc;
-    },
-    [],
-  );
+  return products.reduce((acc: FeaturedCreatorProductType[], product: FeaturedCreatorProductType) => {
+    return Object.prototype.hasOwnProperty.call(productMap, product.productId)
+      ? [...acc, joinProductData(product, productMap[product.productId])]
+      : acc;
+  }, []);
 };
