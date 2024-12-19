@@ -62,7 +62,6 @@ const nextConfig = (phase) => {
     },
     experimental: {
       webpackBuildWorker: true,
-      instrumentationHook: true,
     },
   };
   return withBundleAnalyzer(
