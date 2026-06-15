@@ -27,8 +27,8 @@ const nextConfig = (phase) => {
     productionBrowserSourceMaps: true,
     env,
     compress: isProd,
-    transpilePackages: ['antd', '@ant-design', 'rc-util', 'rc-pagination', 'rc-picker'],
-    publicRuntimeConfig: env,
+    transpilePackages: ['antd', '@ant-design', 'rc-pagination', 'rc-picker'],
+    // publicRuntimeConfig: env,
     compiler: {
       // Remove `console.*` output except `console.error`
       removeConsole: isProd
